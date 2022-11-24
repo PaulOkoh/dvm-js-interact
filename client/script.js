@@ -216,9 +216,14 @@ function createFood(event) {
   let body = { newFood: foodInput.value };
   axios.post("http://localhost:3000/food", body).then((res) => {
     console.log(res.data);
-    let para = document.createElement("p");
-    para.textContent = res.data;
-    document.querySelector("body").appendChild(para);
+    for (let i = 0; i < res.data.length; i++) {
+      let para = document.createElement("p");
+      para.textContent = res.data[i];
+      docBody.appendChild(para);
+    }
+    // let para = document.createElement("p");
+    // para.textContent = res.data;
+    // document.querySelector("body").appendChild(para);
   });
 }
 
